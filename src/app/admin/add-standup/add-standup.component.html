@@ -1,0 +1,150 @@
+<div class="flex flex-col items-center justify-center h-screen dark">
+  <div class="container max-w-max p-6 rounded-lg shadow-md">
+    <h2 class="text-2xl font-bold text-gray-800 mb-4">
+      Adding new Standup to : {{ currentTeamSpace }}
+    </h2>
+    <div class="  w-full max-w-md bg-gray-800 rounded-lg shadow-md p-6">
+      <form class="flex flex-col">
+        <input
+        placeholder="Title"
+        class="bg-gray-700 text-gray-200 border-0 rounded-md p-2 mb-4 focus:bg-gray-600 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150"
+        type="text"
+        />
+        <div class="flex justify-between">
+          <div>
+            <label class="text-sm mb-2 mr-3 text-gray-200 cursor-pointer text-xs" for="startTime">
+              Starting Time
+            </label>
+            <input
+            class="bg-gray-700 text-gray-200 border-0 rounded-md p-2"
+            id="startTime"
+            type="time"
+            />
+          </div>
+          <div>
+            <label class="text-sm mb-2 mr-3 text-gray-200 cursor-pointer text-xs" for="endTime">
+              Ending Time
+            </label>
+            <input
+            class="bg-gray-700 text-gray-200 border-0 rounded-md p-2"
+            id="endTime"
+            type="time"
+            />
+          </div>
+        </div>
+        <br />
+        <hr />
+        <br />
+        <label
+        class="text-sm mb-2 text-gray-200 cursor-pointer text-xs"
+        for="gender"
+        >
+        Question 1
+      </label>
+      <textarea
+      placeholder="Title"
+      name=""
+      id=""
+      cols="30"
+      rows="1"
+      class="bg-gray-700 text-gray-200 border-0 rounded-md p-2 mb-4 focus:bg-gray-600 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150"
+      ></textarea>
+      
+      <label
+      class="text-sm mb-2 text-gray-200 cursor-pointer text-xs"
+      for="gender"
+      >
+      Question 2
+    </label>
+    <textarea
+    placeholder="Title"
+    name=""
+    id=""
+    cols="30"
+    rows="1"
+    class="bg-gray-700 text-gray-200 border-0 rounded-md p-2 mb-4 focus:bg-gray-600 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150"
+    ></textarea>
+    <label
+    class="text-sm mb-2 text-gray-200 cursor-pointer text-xs"
+    for="gender"
+    >
+    Question 3
+  </label>
+  <textarea
+  placeholder="Title"
+  name=""
+  id=""
+  cols="30"
+  rows="1"
+  class="bg-gray-700 text-gray-200 border-0 rounded-md p-2 mb-4 focus:bg-gray-600 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150"
+  ></textarea>
+  
+  <!---------->
+  
+  <!-- Invited Users -->
+  <label
+  class="text-sm mb-2 text-gray-200 cursor-pointer text-xs"
+  for="gender"
+  >
+  Invite Peoples
+</label>
+<div class="flex flex-wrap">
+  <div
+  *ngFor="let invitedUser of invitedUsers; let i = index"
+  class="flex items-center mb-2 ml-1"
+  >
+  <div class="relative bg-gray-700 text-gray-200 rounded-md p-1">
+    <span class="text-sm">{{ invitedUser.name }}</span>
+    <button
+    class="ml-1 px-1 h-4 w-4 bg-red-500 text-white rounded-full text-xs"
+    (click)="removeInvitedUser(i)"
+    >
+    x
+  </button>
+</div>
+</div>
+</div>
+
+<input
+type="text"
+placeholder="Search Teammates"
+class="bg-gray-700 text-gray-200 border-0 rounded-md p-2 mb-4 focus:bg-gray-600 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150"
+(input)="searchUsers($event)"
+/>
+
+<!-- Searched Users -->
+<div class="flex flex-wrap">
+  <div
+  *ngFor="let user of searchedUsers"
+  class="relative text-white mr-2"
+  >
+  {{ user.name }}
+  <button
+  class="ml-1 px-1 h-4 w-4 bg-blue-500 text-white rounded-full text-xs"
+  (click)="inviteUser(user)"
+  >
+  +
+</button>
+</div>
+</div>
+
+<!-- ---- -->
+<div class="text-center space-x-10">
+  <button
+  class="bg-gradient-to-r from-indigo-500 to-blue-500 text-white font-bold py-2 px-4 rounded-md mt-4 hover:bg-indigo-600 hover:to-blue-600 transition ease-in-out duration-150"
+  type="submit"
+  >
+  Reset
+</button>
+<button
+class="bg-gradient-to-r from-indigo-500 to-blue-500 text-white font-bold py-2 px-4 rounded-md mt-4 hover:bg-indigo-600 hover:to-blue-600 transition ease-in-out duration-150"
+type="reset"
+>
+Create
+</button>
+</div>
+</form>
+</div>
+</div>
+
+</div>

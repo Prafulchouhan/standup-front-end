@@ -1,0 +1,49 @@
+<div class="flex flex-col items-center justify-start h-screen dark m-20 ml-10">
+    <div class=" container w-full">
+        <div class="flex w-full space-x-10 mb-4">
+            <input type="text" [(ngModel)]="filters.employee" placeholder="Search by employee" class="flex-1 py-2 px-4 border rounded">
+            <div class="flex-1 relative h-10 pl-10">
+                <mat-form-field class="border rounded h-full flex items-center">
+                    <mat-date-range-input [rangePicker]="picker">
+                        <input matStartDate placeholder="Start date" class="py-2 px-4 border rounded">
+                        <input matEndDate placeholder="End date" class="py-2 px-4 border rounded">
+                    </mat-date-range-input>
+                    <!-- <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint> -->
+                </mat-form-field>
+                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-date-range-picker #picker></mat-date-range-picker>
+            </div>
+            
+
+            <select [(ngModel)]="filters.status" class="flex-1 py-2 px-4 border rounded">
+              <option value="">Select Status</option>
+              <option *ngFor="let status of filteredStatusOptions" [value]="status">{{ status }}</option>
+            </select>
+            <button (click)="applyFilters()" class="p-2 bg-blue-500 text-white rounded">Apply Filters</button>
+          </div>
+
+
+        <div class="bg-gray-800 rounded-lg shadow-md p-6">
+            <table class="w-full border-collapse">
+                <thead>
+                    <tr>
+                        <th class="py-2 px-4 border-b text-left text-white">Employee</th>
+                        <th class="py-2 px-4 border-b text-left text-white">Date</th>
+                        <th class="py-2 px-4 border-b text-left text-white">Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="hover:bg-gray-700" *ngFor="let item of filteredData">
+                        <td class="py-2 px-4 border-b text-white">{{ item.employee }}</td>
+                        <td class="py-2 px-4 border-b text-white">{{ item.date }}</td>
+                        <td class="py-2 px-4 border-b">
+                            <div [ngClass]="{'text-yellow-500': item.status === 'onLeave', 'text-red-500': item.status !== 'onLeave'}">
+                                {{ item.status }}
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

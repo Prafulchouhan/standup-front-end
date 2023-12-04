@@ -1,0 +1,254 @@
+/* sidenavbar.component.css */
+.sidebar {
+  width: 100%;
+  padding: 20px;
+  transition: width 0.3s ease;
+}
+
+
+.half-open {
+  width: 0px;
+}
+
+.full-open {
+  width: 200px;
+  background-color: #f4f4f4;
+  height: 100%; 
+}
+/* 
+.full-open:hover {
+} */
+
+.full-open:hover .box {
+  transform: scale(1.1);
+  bottom: -1px;
+  left: -1px;
+}
+
+.full-open:hover .logo {
+  transform: translate(0, 0);
+  bottom: 20px;
+  right: 20px;
+}
+
+button.toggle-btn {
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.move-right {
+  transform: translateX(120px); /* Adjust the value as needed */
+} 
+
+
+
+button.teamspace-btn{
+  border: none;
+  padding: 1px;
+  cursor: pointer;
+}
+
+h2 {
+  color: #2c3e50;
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+.teamspace-name {
+  font-weight: bold;
+  font-size: 2em;
+}
+
+.standup-list {
+  margin-left: 10px;
+}
+
+h3 {
+  color: #34495e;
+  font-size: 1.2em;
+  margin-bottom: 8px;
+}
+
+/* p {
+  color: #7f8c8d;
+  font-size: 1em;
+  margin-bottom: 5px;
+} */
+.section-text{
+    text-transform: initial;
+    font-size: 15px;
+    line-height: 1;
+    color: rgba(55, 53, 47, 0.5);
+    font-weight: 600;
+    transition: color 100ms ease-out 0s;
+}
+
+.standup-section{
+  padding-left: 5px;
+}
+
+.teamspace-name{
+  text-transform: initial;
+    font-size: 15px;
+    line-height: 1;
+    color: rgba(27, 26, 23, 0.5);
+    font-weight: 600;
+    transition: color 100ms ease-out 0s;
+}
+
+.sb-container{
+  padding-top: 20px;
+}
+
+.card {
+  position: relative;
+  width: 100%;
+  height: 40px;
+  bottom: 0px;
+  background: #f4f4f4;
+  /* border-radius: 30px; */
+  overflow: hidden;
+  transition: all 1s ease-in-out;
+}
+
+.background {
+  position: absolute;
+  inset: 0;
+  bottom: 0;
+  /* background: radial-gradient(circle at 100% 107%, #ff89cc 0%, #9cb8ec 30%, #00ffee 60%, #62c2fe 100%); */
+}
+
+.logo {
+  position: absolute;
+  right: 50%;
+  bottom: 50%;
+  transform: translate(50%, 50%);
+  transition: all 0.6s ease-in-out;
+}
+
+.logo .logo-svg {
+  fill: white;
+  width: 30px;
+  height: 30px;
+}
+
+.icon {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+}
+
+.icon .svg {
+  /* fill: rgba(255, 255, 255, 0.797); */
+  width: 100%;
+  transition: all 0.5s ease-in-out;
+}
+
+.box {
+  position: absolute;
+  padding: 10px;
+  text-align: right;
+  background: rgba(255, 255, 255, 0.389);
+  border-top: 2px solid rgb(255, 255, 255);
+  border-right: 1px solid white;
+  border-radius: 10% 13% 0% 0%/10% 12% 75% 0%;
+  box-shadow: rgba(100, 100, 111, 0.364) -7px 7px 29px 0px;
+  transform-origin: bottom left;
+  transition: all 1s ease-in-out;
+}
+
+.box::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  opacity: 0;
+  transition: all 0.5s ease-in-out;
+}
+
+.box:hover .svg {
+  fill: white;
+}
+
+.box1 {
+  width: 90%;
+  height: 100%;
+  bottom: -90%;
+  left: -90%;
+}
+
+.box1::before {
+  background: radial-gradient(circle at 30% 10%, #fdf497 0%, #fdf497 5%, #ff53d4 60%, #62c2fe 90%);
+}
+
+.box1:hover::before {
+  opacity: 1;
+}
+
+.box1:hover .icon .svg {
+  filter: drop-shadow(0 0 5px white);
+}
+
+.box2 {
+  width: 60%;
+  height: 100%;
+  bottom: -80%;
+  left: -80%;
+  transition-delay: 0.2s;
+}
+
+.box2::before {
+  background: radial-gradient(circle at 30% 107%, #91e9ff 0%, #00ACEE 90%);
+}
+
+.box2:hover::before {
+  opacity: 1;
+}
+
+.box2:hover .icon .svg {
+  filter: drop-shadow(0 0 5px white);
+}
+
+.box3 {
+  width: 30%;
+  height: 100%;
+  bottom: -30%;
+  left: -40%;
+  transition-delay: 0.4s;
+}
+
+.box3::before {
+  background: radial-gradient(circle at 30% 107%, #969fff 0%, #b349ff 90%);
+}
+
+.box3:hover::before {
+  opacity: 1;
+}
+
+.box3:hover .icon .svg {
+  filter: drop-shadow(0 0 5px white);
+}
+
+.box4 {
+  width: 10%;
+  height: 10%;
+  bottom: -10%;
+  left: -10%;
+  transition-delay: 0.6s;
+}
+
+.card:hover {
+  transform: scale(1.1);
+}
+
+.card:hover .box {
+  bottom: -1px;
+  left: -1px;
+}
+
+.card:hover .logo {
+  transform: translate(0, 0);
+  bottom: 20px;
+  right: 20px;
+}

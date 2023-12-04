@@ -1,0 +1,20 @@
+<div
+  class="flex flex-col items-center w-full justify-start h-screen dark mt-20"
+>
+  <div class="container w-full mb-10" *ngFor="let updt of update">
+    <p class="text-gray-500 text-lg">Date : {{ updt.date }}</p>
+    <div *ngFor="let u of updt.updates">
+      <div class="notification">
+        <div class="name">{{ u.name }}</div>
+        <div class="notiglow"></div>
+        <div class="notiborderglow"></div>
+        <div *ngFor="let ans of u.prosper; let i = index">
+          <div class="question">
+            {{ currentStandup.question[i] }}
+          </div>
+          <div class="answer">{{ ans }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
